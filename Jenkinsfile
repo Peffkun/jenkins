@@ -3,7 +3,14 @@ pipeline {
   stages {
     stage('stage 1') {
       steps {
-        sh 'date'
+        sh '''if grep "$user" /etc/passwd > /dev/null
+    
+
+then
+	echo "l\'utilisateur n\'existe pas"
+    else
+	echo "l\'utilisateur existe"
+    fi'''
       }
     }
 
